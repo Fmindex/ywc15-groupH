@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  margin-top: 60px;
+  height: 100px;
+}
+
+.App-header {
+  background-image: url('./image/background.jpg');
+  height: 300px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  margin-top: 32px;
+  font-size: 1.5em;
+}
+
+.main-container {
+  font-size: large;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.mk-inline {
+  display: inline-block;
+  width: 25%;
+  outline: none;
+  /* margin: 16px; */
+}
