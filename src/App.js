@@ -2,14 +2,13 @@ import './App.css';
 import 'react-select/dist/react-select.css';
 
 import React, { Component } from 'react';
-
-import List from './list';
+import {Map, Marker, google, GoogleApiWrapper} from 'google-maps-react';
 import SearchBox from './searchBox';
 import Select from 'react-select';
 import Tags from './tags';
 import axios from 'axios';
 
-class App extends Component {
+export class App extends Component {
 
   constructor(props) {
     super(props);
@@ -146,12 +145,13 @@ class App extends Component {
             
           </div>  
         
-          <List users={this.filtered(this.state.users, this.state.keyWordTerm)} />
         </div>
       </div>
     );
   }
 }
 
-export default App;
- 
+
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyA5MyqlGRcFpc6CbveQeM5BgbcObveiIQ8')
+})(App);

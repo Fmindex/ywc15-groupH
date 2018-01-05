@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "google-map-react": "^0.27.0",
+    "google-maps-react": "^1.1.2",
     "material-ui-search-bar": "^0.4.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-google-maps": "^9.4.5",
     "react-select": "^1.0.0"
   },
   "devDependencies": {
