@@ -28,14 +28,13 @@ const MapWithAMarker = compose(
     >
     {
       props.markers.map((marker, index) => {
-        console.log(marker.lat);
         return (
-         <Marker position={{ lat: marker.lat, lng: marker.lng }} onClick={() => props.onMarkerClick(index)} icon={require('./image/design.png')}>
+         <Marker position={{ lat: marker.lat, lng: marker.lng }} onClick={() => props.onMarkerClick(index)} >
             {
                 props.shouldShowMarker[index] &&
                 <InfoWindow onCloseClick={() => props.onMarkerClick(index)}>
                     <div>
-                        FM
+                        {marker.msg}
                     </div>
                 </InfoWindow>
             }
@@ -53,7 +52,10 @@ export default class MapPage extends Component {
     this.state = {
         shouldShowMarker: [
             true,
-            false,
+            true,
+            true,
+            true,
+            true,
         ]
     }
     this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -61,12 +63,12 @@ export default class MapPage extends Component {
 
   static defaultProps = {
     center: {lat: 59.95, lng: 30.33},
-    zoom: 11
+    zoom: 48
   };
 
   onMarkerClick(index) {
     let Obj = this.state.shouldShowMarker;
-    Obj[index] = !Obj[index];
+    Obj[index] = true;
     this.setState({
         ...this.state,
         shouldShowMarker: Obj,
@@ -75,15 +77,22 @@ export default class MapPage extends Component {
 
   render() {
     var markers = [
-        {lat: -34.397, lng: 150.644},
-        {lat: -34.300, lng: 150.675},
+        {lat: -34.397, lng: 150.644, msg: 'ดอยผาผึ้ง'},
+        {lat: -34.300, lng: 150.675, msg: 'ดอยอินทนนท์'},
+        {lat: -34.000, lng: 150.135, msg: 'ดอยปุย'},
+        {lat: -34.100, lng: 150.675, msg: 'ม่อนแจ่ม'},
+        {lat: -34.250, lng: 150.475, msg: 'นิมมาน'},
     ];
     return (
-      <div className="App">
+      <div className="App" style={{ marginTop: '64px' }}>
+        
+        <div style={{ fontSize: '20px', fontWeight: 'bold', marginLeft: '64px', marginBottom: '16px' }}>
+            Route suggestion
+          </div>
         <div 
+            className="col-sm-9 no-padding"
             style={{
-                height: 400,
-                width: 400,
+                height: 440,
             }}
         >
             <MapWithAMarker
@@ -95,6 +104,48 @@ export default class MapPage extends Component {
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
             />
+        </div>
+        <div className="col-sm-3">
+            <div className="row" 
+                style={{ cursor: 'pointer', borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}
+               
+            >
+              <a href='/review1'>
+              <div className="col-sm-5 no-padding">
+                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+              </div>
+              <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
+                ดอยผาผึ้ง
+              </div>
+              </a>
+            </div>
+            
+            <div className="row" style={{ borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}>
+              <div className="col-sm-5 no-padding">
+                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+              </div>
+              <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
+                ดอยสุเทพ
+              </div>
+            </div>
+            
+            <div className="row" style={{ borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}>
+              <div className="col-sm-5 no-padding">
+                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+              </div>
+              <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
+                ดอยอินทนนท์
+              </div>
+            </div>
+            
+            <div className="row" style={{ borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}>
+              <div className="col-sm-5 no-padding">
+                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+              </div>
+              <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
+                ดอยปุย
+              </div>
+            </div>
         </div>
       </div>
     );

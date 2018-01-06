@@ -7,10 +7,13 @@
     "google-map-react": "^0.27.0",
     "google-maps-react": "^1.1.2",
     "material-ui-search-bar": "^0.4.1",
+    "nuka-carousel": "^3.0.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-google-maps": "^9.4.5",
-    "react-select": "^1.1.0"
+    "react-scroll": "^1.7.5",
+    "react-select": "^1.1.0",
+    "react-slick": "^0.16.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.17"

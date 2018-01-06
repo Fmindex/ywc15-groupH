@@ -45,3 +45,7 @@
 .no-padding-l {
   padding-left: 0;
 }
+
+.no-padding {
+  padding: 0;
+}

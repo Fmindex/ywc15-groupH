@@ -25,13 +25,13 @@ class Button extends Component {
         let tagStyle = this.props.isActive ? 
         {
             height: this.props.height, 
-            width: '80%',
+            width: '75%',
             textAlign: 'center',
             backgroundColor: `rgba(${this.props.color}1)`, 
             display: 'inline-block', 
             borderRadius: '16px',
             margin: '0px 8px 8px 8px', 
-            fontSize: '18px',
+            fontSize: '14px',
             cursor: 'pointer',
             padding: 8,
             color: 'white', 
@@ -53,7 +53,6 @@ class Button extends Component {
 
         return (
             <div style={tagStyle} className={this.props.className}
-                onClick={this.props.onClick}
                 onMouseEnter={() => this.onMouseEnter()}
                 onMouseLeave={() => this.onMouseLeave()}
             >

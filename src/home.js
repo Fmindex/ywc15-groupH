@@ -6,9 +6,11 @@ import {Map, Marker, google, GoogleApiWrapper} from 'google-maps-react';
 import SearchBox from './searchBox';
 import Select from 'react-select';
 import Button from './button';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+var createReactClass = require('create-react-class');
 
+var Carousel = require('nuka-carousel');
 export class Home extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +28,16 @@ export class Home extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  onSearchClick() {
+      console.log("dsdwseds");
+      
+    
+      scroll.scrollToBottom( {
+        duration: 1500,
+        delay: 100,
+        smooth: true,
+    })
+  }
 
   handleChange = (selectedOption) => {
     this.setState({ 
@@ -35,11 +47,80 @@ export class Home extends Component {
   }
 
   render() {
+    var Decorators = [{
+        component: createReactClass({
+          render() {
+            return (
+              <img
+              src={require('./image/slide-down.png')}
+                onClick={() => scroller.scrollTo('Suggest',  {
+                    duration: 1500,
+                    delay: 100,
+                    smooth: true,
+                })}
+                style={{ cursor: 'pointer',width: 40,height: 48,color: 'white', textAlign: 'center', borderStyle: 'solid', borderColor:'white', paddingTop: '8px',fontSize: '18px' }}>
+              
+              </img>
+            )
+          }
+        }),
+        position: 'BottomRight',
+        style: {
+          padding: 20
+        }
+      },
+      {
+        component: createReactClass({
+          render() {
+            return (
+              <img src={require('./image/logo.png')} style={{ 
+                width: 96, 
+                height: 96, 
+                 }}/>
+            )
+          }
+        }),
+        position: 'TopCenter',
+        style: {
+          padding: 20
+        }
+      },
+      {
+        component: createReactClass({
+          render() {
+            return (
+              <div  style={{ 
+                width: 96, 
+                height: 96,
+                marginLeft: '256px' ,
+                color: 'white',
+                fontSize: '24px'
+                 }}>
+                REVIEWS
+                </div>
+            )
+          }
+        }),
+        position: 'TopCenter',
+        style: {
+          padding: 20
+        }
+      },
+    ];
+      
      return (
         <div className="App">
-            <header className="App-header">
-                    {/* {<img src={require('./image/bg.jpg')} className="App-logo" alt="logo" />} */}
-            </header>
+            
+            <Carousel autoplay={true} autoplayInterval={2000} decorators={Decorators}>
+                <img height={window.screen.height - 176} src={require('./image/555555.jpg')} />
+                <img height={window.screen.height - 176} src={require('./image/77777.jpg')} />
+                <img height={window.screen.height - 176} src={require('./image/555555.jpg')} />
+                <img height={window.screen.height - 176} src={require('./image/77777.jpg')} />
+                <img height={window.screen.height - 176} src={require('./image/bg.jpg')} />
+                <img height={window.screen.height - 176} src={require('./image/77777.jpg')} />
+            </Carousel>   
+            
+            <Element name="Suggest">
             <div style={{
             width: '100%', 
             left: 0, 
@@ -47,8 +128,8 @@ export class Home extends Component {
             marginRight: 'auto', 
             marginLeft: 'auto', 
             marginBottom: 32, 
-            padding: window.screen.width >= 768 ? '32px 32px 24px 32px': '24px 0px 16px 32px', 
-            backgroundColor: 'rgba(0, 0, 0, 0.95)', 
+            padding: window.screen.width >= 768 ? '16px 32px 12px 32px': '24px 0px 16px 32px', 
+            backgroundColor: '#1B1B1B', 
             // borderRadius: 16,
             }}>
                 <div 
@@ -61,7 +142,7 @@ export class Home extends Component {
                 {
                     window.screen.width >= 768 &&
                     <div className="col-sm-2">
-                        <div style={{ fontSize: 20, marginLeft: 32, marginTop: 4, color: 'white' }}>
+                        <div style={{ fontSize: 18, marginLeft: 48, marginTop: 4, color: 'white', paddingRight: 0 }}>
                             Find your route 
                         </div>
                     </div>
@@ -85,61 +166,53 @@ export class Home extends Component {
                         />  
                     </div>
                     
-                    <div className="col-sm-2 no-padding-l col-xs-4">
+                    <div className="col-sm-2 no-padding-l col-xs-4" onClick={() => this.onSearchClick()} >
                     <Button 
                             text="SEARCH" 
-                            height={40}
+                            height={34}
                             isActive={true}
-                            onClick={this.props.onSearchClick} 
+                            onClick={this.onSearchClick}
                             major="programming" 
-                            color="214, 133, 27, 1"
+                            color="223, 115, 37, 1"
                         />
                     </div>
                 </div> 
             </div>  
-            <div className="row">
-                <div className="col-sm-3">
-                    <Button 
-                        text="North" 
-                        height={40}
-                        isActive={this.state.isActive["programming"]}
-                        onClick={this.onTagClick} 
-                        major="programming" 
-                        color="0, 201, 165, "
-                    />
+            </Element>
+                <div className="row" style={{ width: '75%', left: 0, right: 0, margin: 'auto', textAlign: 'center' }}>
+                    <div style={{ fontSize: '24px', marginBottom: '24px', fontWeight: 'bold' }}>Suggestion for you</div>
                 </div>
-                <div className="col-sm-3">
-                    <Button 
-                        text="South" 
-                        height={40}
-                        isActive={this.state.isActive["programming"]}
-                        onClick={this.onTagClick} 
-                        major="programming" 
-                        color="0, 201, 165, "
-                    />
-                </div>
-                <div className="col-sm-3">
-                    <Button 
-                        text="West" 
-                        height={40}
-                        isActive={this.state.isActive["programming"]}
-                        onClick={this.onTagClick} 
-                        major="programming" 
-                        color="0, 201, 165, "
-                 />  
-                </div>
-                <div className="col-sm-3">
-                    <Button 
-                        text="East" 
-                        height={40}
-                        isActive={this.state.isActive["programming"]}
-                        onClick={this.onTagClick} 
-                        major="programming" 
-                        color="0, 201, 165, "
-                    />
-                </div>
-            </div>       
+                <div 
+                     style={{ 
+                        width: '75%', 
+                        left: 0,
+                        right: 0,
+                        margin: 'auto', 
+                        height: '200px',
+                        overflowY: 'hidden',
+                        textAlign: 'center'}}>
+                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/1.png')} style={{ marginLeft: '32px' }} onClick={() => scroll.scrollToBottom( {
+                            duration: 1500,
+                            delay: 100,
+                            smooth: true,
+                        })}/></div>
+                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/2.png')} style={{ marginLeft: '32px' }} onClick={() => scroll.scrollToBottom( {
+                            duration: 1500,
+                            delay: 100,
+                            smooth: true,
+                        })}/></div>
+                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/3.png')} style={{ marginLeft: '32px' }} onClick={() => scroll.scrollToBottom( {
+                            duration: 1500,
+                            delay: 100,
+                            smooth: true,
+                        })}/> </div>
+                </div>    
+            <Element name="Suggest2" >
+            <div />
+            </Element>
         </div>
+
+        
     );
   }
 }
