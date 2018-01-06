@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   margin-top: 60px;
@@ -29,7 +27,7 @@
 
 .mk-inline {
   display: inline-block;
-  width: 25%;
+  width: 100%;
   outline: none;
   /* margin: 16px; */
 }
