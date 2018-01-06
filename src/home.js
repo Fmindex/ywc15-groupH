@@ -32,10 +32,11 @@ export class Home extends Component {
       console.log("dsdwseds");
       
     
-      scroll.scrollMore(1000, {
+      scroller.scrollTo('Suggest',  {
         duration: 1500,
         delay: 100,
         smooth: true,
+        offset: 400
     })
   }
 
@@ -251,21 +252,27 @@ export class Home extends Component {
                         textAlign: 'center'}}>
                         <div style={{ display: 'inline', cursor: 'pointer' }}>
                         <img height={180} width={280} src={require('./image/1.png')} style={{ marginLeft: '32px' }}
-                         onClick={() => scroll.scrollMore( 500,{
-                            duration: 1500,
-                            delay: 100,
-                            smooth: true,
-                        })}/></div>
-                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/2.png')} style={{ marginLeft: '32px' }} onClick={() => scroll.scrollToBottom( {
-                            duration: 1500,
-                            delay: 100,
-                            smooth: true,
-                        })}/></div>
-                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/3.png')} style={{ marginLeft: '32px' }} onClick={() => scroll.scrollToBottom( {
-                            duration: 1500,
-                            delay: 100,
-                            smooth: true,
-                        })}/> </div>
+                         onClick={() => 
+                            scroller.scrollTo('Suggest',  {
+                              duration: 1500,
+                              delay: 100,
+                              smooth: true,
+                              offset: 400
+                          })}/></div>
+                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/2.png')} style={{ marginLeft: '32px' }} onClick={() => 
+      scroller.scrollTo('Suggest',  {
+        duration: 1500,
+        delay: 100,
+        smooth: true,
+        offset: 400
+    })}/></div>
+                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/3.png')} style={{ marginLeft: '32px' }} onClick={() =>
+      scroller.scrollTo('Suggest',  {
+        duration: 1500,
+        delay: 100,
+        smooth: true,
+        offset: 400
+    })}/> </div>
                 </div>    
             <Element name="Suggest2" >
             <div />

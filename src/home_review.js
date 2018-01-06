@@ -63,6 +63,8 @@ class home_review extends Component {
     <span className="icon-bar"></span>
     <span className="icon-bar"></span>
 </button>
+
+<div className= "wtf">
 <a id="logo" className="navbar-brand" href="#link" title="">
    <h1> รีวิว </h1>
 </a>
@@ -87,6 +89,7 @@ class home_review extends Component {
         </ul>
     </div>
 </nav>
+</div>
 <div id="search-form" className="search-form js-search-form">
     <form className="form-search" role="search" action="/search.php" method="get">
         <div className="input-group">

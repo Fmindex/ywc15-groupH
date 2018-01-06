@@ -61,7 +61,7 @@ class review1 extends Component {
 
 <nav aria-label="...">
   <ul className="pager" id="backforreview">
-    <li><a href="/">Back</a></li>
+    <li><a href="/home_review">กลับ</a></li>
   </ul>
 </nav>
 
