@@ -6,10 +6,20 @@
 }
 
 .App-header {
-  background-image: url('./image/background.jpg');
-  height: 300px;
+  background-image: url('./image/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: calc(100vh - 300px);
+  width: 100%;
   padding: 20px;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .App-header {
+    height: calc(100vh - 300px);
+  }
 }
 
 .App-title {
@@ -30,4 +40,8 @@
   width: 100%;
   outline: none;
   /* margin: 16px; */
+}
+
+.no-padding-l {
+  padding-left: 0;
 }

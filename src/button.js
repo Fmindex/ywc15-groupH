@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Tag extends Component {
+class Button extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,30 +24,36 @@ class Tag extends Component {
         let shadow = !this.state.onMouseEnter ? '2px 2px 1px grey' : '4px 4px 2px grey';
         let tagStyle = this.props.isActive ? 
         {
-            height: 56, 
+            height: this.props.height, 
+            width: '80%',
+            textAlign: 'center',
             backgroundColor: `rgba(${this.props.color}1)`, 
             display: 'inline-block', 
-            margin: 8, 
+            borderRadius: '16px',
+            margin: '0px 8px 8px 8px', 
+            fontSize: '18px',
             cursor: 'pointer',
-            padding: 16,
+            padding: 8,
             color: 'white', 
-            boxShadow: shadow,
+            // boxShadow: shadow,
         }
         : 
         { 
-            height: 56, 
+            height: this.props.height, 
+            width: '90%',
+            textAlign: 'center',
             backgroundColor: `rgba(${this.props.color}0.3)`, 
             display: 'inline-block', 
-            margin: 8, 
+            margin: '0px 8px 8px 8px', 
             cursor: 'pointer', 
-            padding: 16,
+            padding: 8,
             color: 'white',
             boxShadow: shadow,
         };
 
         return (
-            <div style={tagStyle} 
-                onClick={() => this.props.onClick(this.props.major)} 
+            <div style={tagStyle} className={this.props.className}
+                onClick={this.props.onClick}
                 onMouseEnter={() => this.onMouseEnter()}
                 onMouseLeave={() => this.onMouseLeave()}
             >
@@ -56,4 +62,4 @@ class Tag extends Component {
         );
     }
 }
-export default Tag;
+export default Button;
