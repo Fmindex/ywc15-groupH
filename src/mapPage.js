@@ -56,7 +56,8 @@ export default class MapPage extends Component {
             true,
             true,
             true,
-        ]
+        ],
+        new: false,
     }
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
@@ -87,7 +88,12 @@ export default class MapPage extends Component {
       <div className="App" style={{ marginTop: '64px' }}>
         
         <div style={{ fontSize: '20px', fontWeight: 'bold', marginLeft: '64px', marginBottom: '16px' }}>
-            Route suggestion
+           แนะนำเส้นทางเที่ยว
+            
+          <div  onClick={() => this.setState({ ...this.state, new: !this.state.new })}
+          style={{ marginLeft: '32px',fontSize: '14px', cursor: 'pointer' ,borderStyle: 'solid', width: '64px', display: 'inline' }}>
+            {this.state.new ? 'NEW' : 'OLD'}
+          </div>
           </div>
         <div 
             className="col-sm-9 no-padding"
@@ -95,7 +101,11 @@ export default class MapPage extends Component {
                 height: 440,
             }}
         >
-            <MapWithAMarker
+        {
+          this.state.new ? 
+          <img src={require('./image/map.jpg')} height={'400px'} width={'100%'}/>
+          :
+          <MapWithAMarker
                 markers={markers}
                 shouldShowMarker={this.state.shouldShowMarker}
                 onMarkerClick={this.onMarkerClick}
@@ -104,6 +114,7 @@ export default class MapPage extends Component {
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
             />
+        }
         </div>
         <div className="col-sm-3">
             <div className="row" 
@@ -122,7 +133,7 @@ export default class MapPage extends Component {
             
             <div className="row" style={{ borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}>
               <div className="col-sm-5 no-padding">
-                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+                <img height="100%" width="80%" src={require('./image/c2.PNG')} style={{ margin: '16px', backgroundSize: 'contain' }} />
               </div>
               <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
                 ดอยสุเทพ
@@ -131,7 +142,7 @@ export default class MapPage extends Component {
             
             <div className="row" style={{ borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}>
               <div className="col-sm-5 no-padding">
-                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+                <img height="100%" width="80%" src={require('./image/c1.PNG')} style={{ margin: '16px', backgroundSize: 'contain' }} />
               </div>
               <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
                 ดอยอินทนนท์
@@ -140,7 +151,7 @@ export default class MapPage extends Component {
             
             <div className="row" style={{ borderRightWidth: 0, borderLeftWidth: 0,borderTopWidth: '1px',borderBottomWidth: '1px',  borderColor: 'rgba(0,0,0,0.1)', borderStyle: 'solid' }}>
               <div className="col-sm-5 no-padding">
-                <img height="100%" width="80%" src={require('./image/sug.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
+                <img height="100%" width="80%" src={require('./image/c3.jpg')} style={{ margin: '16px', backgroundSize: 'contain' }} />
               </div>
               <div className="col-sm-7" style={{ marginTop: '16px', marginBottom: '16px' }}>
                 ดอยปุย

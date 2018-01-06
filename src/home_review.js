@@ -15,6 +15,7 @@ import {
 
 import axios from 'axios';
 
+var Carousel = require('nuka-carousel');
 class home_review extends Component {
 
     constructor(props) {
@@ -41,19 +42,14 @@ class home_review extends Component {
         return (
             <div className="App2">
 
+                <a href="/"><img src={require('./image/logo.png')} height={96} width={96} style={{ position: 'absolute', top: 16, left: 0, right: 0, margin: 'auto' }}/></a>
 
-
-
+                <img height={600} width={'100%'} style={{ backgroundSize: 'cover' }} src={require('./image/555555.jpg')} />
 
                 <div className="col-md-1"></div>
 
                 <div className="col-md-10">
 
-                    <div className="jumbotron">
-                        <h1>Hello, world!</h1>
-                        <p>...</p>
-                        <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-                    </div>
 
 
                     <div className="col-md-2"></div>

@@ -30,6 +30,7 @@ export default class App extends Component {
         <Home onSearchClick={this.onSearchClick} />
         <MapPage />
         <img src={require('./image/66666.jpg')} style={{ backgroundSize: 'cover', width: '100%' }}/>
+        <img src={require('./image/FOOTER.jpg')} style={{ backgroundSize: 'cover', width: '100%' }}/>
         
       </div>
     );

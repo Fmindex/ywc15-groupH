@@ -32,7 +32,7 @@ export class Home extends Component {
       console.log("dsdwseds");
       
     
-      scroll.scrollToBottom( {
+      scroll.scrollMore(1000, {
         duration: 1500,
         delay: 100,
         smooth: true,
@@ -89,14 +89,46 @@ export class Home extends Component {
         component: createReactClass({
           render() {
             return (
+            <a href="/review1">
               <div  style={{ 
-                width: 96, 
-                height: 96,
-                marginLeft: '256px' ,
-                color: 'white',
-                fontSize: '24px'
+                width: 192, 
+                height: 54,
+                color: 'black',
+                fontSize: '18px',
+                marginTop: '256px',
+                textAlign: 'center',
+                paddingTop: 16,
+                borderRadius: '16px',
+                cursor: 'pointer',
+                backgroundColor: 'rgba(255,255,255,0.6)'
                  }}>
-                REVIEWS
+                รีวิว
+                </div>
+                </a>
+            )
+          }
+        }),
+        position: 'CenterCenter',
+        style: {
+          padding: 20
+        }
+      },
+      {
+        component: createReactClass({
+          render() {
+            return (
+              <div  style={{ 
+                width: 192, 
+                height: 54,
+                color: 'white',
+                fontSize: '18px',
+                marginRight: '350px',
+                marginTop: '16px',
+                textAlign: 'center',
+                cursor: 'pointer',
+                paddingTop: 16,
+                 }}>
+                เกี่ยวกับเรา
                 </div>
             )
           }
@@ -104,6 +136,32 @@ export class Home extends Component {
         position: 'TopCenter',
         style: {
           padding: 20
+        }
+      },
+      {
+        component: createReactClass({
+          render() {
+            return (
+                <a href="/home_review"> 
+              <div  style={{ 
+                width: 192, 
+                height: 54,
+                color: 'white',
+                fontSize: '18px',
+                marginLeft: '350px',
+                marginTop: '16px',
+                textAlign: 'center',
+                paddingTop: 16,
+                 }}>
+                รีวิวทั้งหมด
+                </div>
+                </a>
+            )
+          }
+        }),
+        position: 'TopCenter',
+        style: {
+          padding: 20,
         }
       },
     ];
@@ -143,7 +201,7 @@ export class Home extends Component {
                     window.screen.width >= 768 &&
                     <div className="col-sm-2">
                         <div style={{ fontSize: 18, marginLeft: 48, marginTop: 4, color: 'white', paddingRight: 0 }}>
-                            Find your route 
+                            ค้นหาชุมชนที่ใช่ 
                         </div>
                     </div>
                 }
@@ -156,19 +214,19 @@ export class Home extends Component {
                             placeholder=""
                             clearable={false}
                             options={[
-                            { value: 'cnx', label: 'Chiang Mai' },
-                            { value: 'bkk', label: 'Bangkok' },
-                            { value: 'phu', label: 'Phuket' },
-                            { value: 'hh', label: 'Hua Hin' },
-                            { value: 'dst', label: 'Doi Suthep' },
-                            { value: 'dint', label: 'Doi Inthanon' }, 
+                            { value: 'cnx', label: 'เชียงใหม่' },
+                            { value: 'bkk', label: 'เลย' },
+                            { value: 'phu', label: 'น่าน' },
+                            { value: 'hh', label: 'แพร่' },
+                            { value: 'dst', label: 'ดอยสุเทพ' },
+                            { value: 'dint', label: 'ลำปาง' }, 
                             ]}
                         />  
                     </div>
                     
                     <div className="col-sm-2 no-padding-l col-xs-4" onClick={() => this.onSearchClick()} >
                     <Button 
-                            text="SEARCH" 
+                            text="ค้นหา" 
                             height={34}
                             isActive={true}
                             onClick={this.onSearchClick}
@@ -180,7 +238,7 @@ export class Home extends Component {
             </div>  
             </Element>
                 <div className="row" style={{ width: '75%', left: 0, right: 0, margin: 'auto', textAlign: 'center' }}>
-                    <div style={{ fontSize: '24px', marginBottom: '24px', fontWeight: 'bold' }}>Suggestion for you</div>
+                    <div style={{ fontSize: '24px', marginBottom: '24px', fontWeight: 'bold' }}>คัดมาให้คุณ</div>
                 </div>
                 <div 
                      style={{ 
@@ -191,7 +249,9 @@ export class Home extends Component {
                         height: '200px',
                         overflowY: 'hidden',
                         textAlign: 'center'}}>
-                        <div style={{ display: 'inline', cursor: 'pointer' }}><img height={180} width={280} src={require('./image/1.png')} style={{ marginLeft: '32px' }} onClick={() => scroll.scrollToBottom( {
+                        <div style={{ display: 'inline', cursor: 'pointer' }}>
+                        <img height={180} width={280} src={require('./image/1.png')} style={{ marginLeft: '32px' }}
+                         onClick={() => scroll.scrollMore( 500,{
                             duration: 1500,
                             delay: 100,
                             smooth: true,
